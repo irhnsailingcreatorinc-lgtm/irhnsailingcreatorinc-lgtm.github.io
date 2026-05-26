@@ -1,0 +1,73 @@
+{
+  "theme": "Dark",
+  "archetype": "Organic & Earthy mixed with Tech (Luxury Brutalism)",
+  "rationale": "Breaking away from the typical cyan/purple AI-slop aesthetic by adopting a high-end, architectural, tactile design language. This roots the 'AI App Builder' in physical, premium engineering concepts. We are using deep obsidian bases with warm terracotta and ochre accents.",
+  "typography": {
+    "heading_font": "Clash Display",
+    "body_font": "Satoshi",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter font-medium",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-medium",
+      "h3": "text-xl sm:text-2xl tracking-tight font-medium",
+      "body": "text-base leading-relaxed text-zinc-400",
+      "labels": "text-xs uppercase tracking-[0.2em] font-bold text-zinc-500"
+    }
+  },
+  "colors": {
+    "background": "#0A0A0A",
+    "surface": "#161616",
+    "primary_accent": "#D95D39",
+    "secondary_accent": "#E8A87C",
+    "text_primary": "#F3F3F3",
+    "text_secondary": "#A1A1AA",
+    "border": "#27272A"
+  },
+  "layout_spacing": {
+    "container_padding": "p-8 md:p-12 lg:p-16",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-8 md:gap-12",
+    "border_radius": "rounded-none md:rounded-2xl"
+  },
+  "components": {
+    "navigation": "Sticky, backdrop-blur-2xl bg-black/60 border-b border-white/10. Uses glassmorphism with 1px delicate inner stroke.",
+    "hero": "Asymmetric layout. High-impact heading with tight letter spacing. Uses the hero_background image with a subtle bg-black/50 overlay. Add a 'sparkles badge' styled as an architectural label.",
+    "feature_grid": "Bento Grid Mode A (Tetris grid). Mix of spans (e.g., col-span-8 row-span-2, col-span-4 row-span-1). Use abstract textures and 3D architectural images inside cards.",
+    "buttons": "Flat, pure background with primary accent color for primary CTA. Use text-white. Hover state: slightly lighter accent, -translate-y-1, subtle shadow.",
+    "cards": "Surface background (#161616), 1px subtle border (border-zinc-800), generous internal padding (p-8 to p-12).",
+    "forms": "Waitlist form using customized Shadcn inputs (dark backgrounds, focus rings using primary_accent). data-testid required."
+  },
+  "motion_interactions": {
+    "hover": "Explicit text colors on hover. Scale up or translate-y on interactive cards.",
+    "entrance": "Staggered fade-up for feature grid items using framer-motion.",
+    "accessibility": "Respect prefers-reduced-motion."
+  },
+  "media": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/6cdeeb50-7f5d-4c6c-8fc8-eb93bd010b61/images/955b028086fe15f95155b94bdff2aa05f193ed5fe56d95f6382e0cfeb1b413b0.png",
+      "description": "Minimalist dark architectural abstract for the main hero section background",
+      "category": "hero"
+    },
+    "ai_brain_feature": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/6cdeeb50-7f5d-4c6c-8fc8-eb93bd010b61/images/3445bcd6bfd66f0ff9d1dd8192b0d31954ee2e4e8148d59fa8f954ed0bd06e68.png",
+      "description": "Glowing minimalist clay sphere for the 'AI Brain' bento grid card",
+      "category": "feature"
+    },
+    "deploy_feature": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/6cdeeb50-7f5d-4c6c-8fc8-eb93bd010b61/images/371ae456280dfc88e8d87b6453b0347c9366dd8c7ca2fdbbd2afe0b7a96a47bc.png",
+      "description": "Abstract geometric interlocking shapes for 'Instant Deploy' bento grid card",
+      "category": "feature"
+    },
+    "texture_background": {
+      "url": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjB0ZXh0dXJlZCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzc5NzU3MTAxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark textured background for the final CTA card",
+      "category": "background"
+    }
+  },
+  "critical_rules": [
+    "Use data-testid attributes for all interactive elements (e.g., data-testid='waitlist-submit-button').",
+    "No pure black or pure white. Use #0A0A0A and #F3F3F3.",
+    "Do not use generic fonts like Inter, Roboto, or Open Sans for headings.",
+    "Avoid typical cyan/purple/blue AI gradients.",
+    "Images must not be darkened beyond bg-black/50 overlay."
+  ],
+  "instructions_to_main_agent": "Use Lucide React for icons. Implement Framer Motion for scroll-triggered entrance animations (staggered fade-up). Build a 6-card bento grid for the features using the provided images. Implement the waitlist form with standard React state or Shadcn form components, and add toast notifications on submission. Use raw Tailwind classes for custom layout sections and Shadcn for internal components like inputs and buttons."
+}
