@@ -54,8 +54,9 @@ export default function Nav() {
         <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
           {[
             { label: "Features", id: "features" },
-            { label: "Workflow", id: "workflow" },
-            { label: "Waitlist", id: "waitlist" },
+            { label: "Demo", id: "demo" },
+            { label: "Pricing", id: "pricing" },
+            { label: "FAQ", id: "faq" },
           ].map((item) => (
             <button
               key={item.id}
