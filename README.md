@@ -1,2 +1,3 @@
-# irhnsailingcreatorinc-lgtm.github.io
-Personal GitHub Pages site
+# Nicole Flint
+
+Welcome to my site. More coming soon!
