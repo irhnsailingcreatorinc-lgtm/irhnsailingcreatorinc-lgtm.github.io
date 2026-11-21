@@ -1,0 +1,27 @@
+name: Cloud 9 preview tests
+on:
+  pull_request:
+    paths:
+      - 'cloud9-profit-guard/**'
+      - '.github/workflows/cloud9-preview-ci.yml'
+  push:
+    branches:
+      - 'feature/cloud9-profit-guard-preview-*'
+    paths:
+      - 'cloud9-profit-guard/**'
+      - '.github/workflows/cloud9-preview-ci.yml'
+permissions:
+  contents: read
+jobs:
+  pricing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: node --check cloud9-profit-guard/pricing.js && node --check cloud9-profit-guard/pricing.test.cjs
+      - name: Test pricing calculations
+        run: node --test cloud9-profit-guard/pricing.test.cjs
