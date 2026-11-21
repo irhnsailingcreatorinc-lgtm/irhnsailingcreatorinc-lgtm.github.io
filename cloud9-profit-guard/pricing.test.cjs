@@ -1,0 +1,10 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const pricing=require('./pricing.js');
+test('account for product production shipping and processing',()=>{const r=pricing.calculate({cost:12,shipping:4.5,price:29,feePercent:2.9,feeFixed:.3});assert.equal(r.profit,11.36);assert.equal(r.revenue,29);assert.equal(r.totalCost,17.64)});
+test('customer-paid shipping changes revenue and processing fees',()=>{const r=pricing.calculate({price:20,cost:9,shipping:5,shippingCharged:5,feePercent:3});assert.equal(r.profit,10.25)});
+test('calculate price at or above target margin',()=>{const item={price:29,cost:12,shipping:5,feePercent:3,feeFixed:.3};const price=pricing.priceForMargin(item,40);assert.ok(pricing.calculate({...item,price}).margin>=40)});
+test('reject impossible target margins and invalid discounts',()=>{assert.throws(()=>pricing.priceForMargin({cost:1,feePercent:10},95));assert.throws(()=>pricing.calculate({price:10,discount:12}))});
+test('project monthly contribution net of overhead',()=>{const p=pricing.projectMonthly({price:20,cost:10},12,30);assert.equal(p.monthlyNet,90);assert.equal(p.breakEvenOrders,3)});
+test('CSV quotes and embedded commas are preserved',()=>{const rows=[{name:'Bear, Mountain',price:29},{name:'Say "Hello"',price:32}];assert.deepEqual(pricing.parseCSV(pricing.makeCSV(rows)),rows.map(x=>({name:x.name,price:String(x.price)})))});
